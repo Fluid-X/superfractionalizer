@@ -4,11 +4,28 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract JuicyNFT is ERC721 {
-	constructor() ERC721("JuicyNFT", "JNFT") {
+	string internal _tokenURI;
+
+	constructor(
+		string memory name,
+		string memory symbol,
+		string memory uri
+	) ERC721(name, symbol) {
 		super._safeMint(msg.sender, 0);
+		_tokenURI = uri;
 	}
 
-	function _baseURI() internal pure override returns (string memory) {
-		return "example/";
+	function tokenURI(uint256 tokenId)
+		public
+		view
+		virtual
+		override
+		returns (string memory)
+	{
+		require(
+			tokenId == 0,
+			"ERC721Metadata: URI query for nonexistent token"
+		);
+		return _tokenURI;
 	}
 }

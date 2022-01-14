@@ -18,5 +18,8 @@
     "@truffle/hdwallet-provider": "^2.0.0",
     "dotenv": "^11.0.0",
     "truffle": "^5.4.29"
+  },
+  "dependencies": {
+    "nft.storage": "^5.2.0"
   }
 }
