@@ -45,7 +45,7 @@ contract SuperFractionalized is UUPSProxy, ISuperFractionalized {
 		);
 	}
 
-	function tokenURI() external view returns (string memory _uri) {
-		return IERC721Metadata(address(this)).tokenURI(tokenId);
+	function tokenURI() public view returns (string memory _uri) {
+		return IERC721Metadata(tokenAddress).tokenURI(tokenId);
 	}
 }
