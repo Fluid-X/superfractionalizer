@@ -30,6 +30,8 @@ interface ISuperFractionalizer {
 
     /// @notice Fractionanlizes an ERC721 NFT to Super Token
     /// @param _erc721 Address of ERC721 contract
+    /// @param _name Name of super token
+    /// @param _symbol Symbol of super token
     /// @param _tokenId ID of the token to fractionalize
     /// @param _initialSupply Initial supply fractionalized shares
     /// @return _superFractionalized Address of new fractionalized NFT
