@@ -1,0 +1,537 @@
+{
+  "contractName": "ISuperFractionalizer",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC721",
+          "name": "_erc721",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_initialSupply",
+          "type": "uint256"
+        }
+      ],
+      "name": "fractionalize",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "_fractionalized",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.11+commit.d7f03943\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract IERC721\",\"name\":\"_erc721\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_initialSupply\",\"type\":\"uint256\"}],\"name\":\"fractionalize\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"_fractionalized\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"jtriley.eth\",\"kind\":\"dev\",\"methods\":{\"fractionalize(address,uint256,uint256)\":{\"params\":{\"_erc721\":\"Address of ERC721 contract\",\"_initialSupply\":\"Initial supply fractionalized shares\",\"_tokenId\":\"ID of the token to fractionalize\"},\"returns\":{\"_fractionalized\":\"Address of new fractionalized NFT\"}}},\"title\":\"ERC721 to Super Token Fractionalization Factory\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"fractionalize(address,uint256,uint256)\":{\"notice\":\"Fractionanlizes an ERC721 NFT to Super Token\"}},\"notice\":\"Requires ERC721.approve() call first.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/ISuperFractionalizer.sol\":\"ISuperFractionalizer\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x516a22876c1fab47f49b1bc22b4614491cd05338af8bd2e7b382da090a079990\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a439187f7126d31add4557f82d8aed6be0162007cd7182c48fd934dbab8f3849\",\"dweb:/ipfs/QmRPLguRFvrRJS7r6F1bcLvsx6q1VrgjEpZafyeL8D7xZh\"]},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"project:/contracts/interfaces/ISuperFractionalizer.sol\":{\"keccak256\":\"0xf0bc54f2cb16a5479d297b45187fb809d9cba68d614b2da0949cd46b7a8a0132\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://98191b8eef290833ae12a785b8dfaa24e12a19db5bdce843ac1f0bb6bb38e751\",\"dweb:/ipfs/QmVrbLq8NJkdVSJmdDwTjqAVJHx62Zz7Gfr49SCnewmL1E\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport {IERC721} from \"@openzeppelin/contracts/token/ERC721/IERC721.sol\";\n\n/// @title ERC721 to Super Token Fractionalization Factory\n/// @author jtriley.eth\n/// @notice Requires ERC721.approve() call first.\ninterface ISuperFractionalizer {\n\n    /// @notice Fractionanlizes an ERC721 NFT to Super Token\n    /// @param _erc721 Address of ERC721 contract\n    /// @param _tokenId ID of the token to fractionalize\n    /// @param _initialSupply Initial supply fractionalized shares\n    /// @return _fractionalized Address of new fractionalized NFT\n    function fractionalize(\n        IERC721 _erc721,\n        uint256 _tokenId,\n        uint256 _initialSupply\n    ) external returns (address _fractionalized);\n\n}\n",
+  "sourcePath": "/Users/joshuatrujillo/Documents/github/FluidX/superfractionalizer/ethereum-contracts/contracts/interfaces/ISuperFractionalizer.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/ISuperFractionalizer.sol",
+    "exportedSymbols": {
+      "IERC721": [
+        115
+      ],
+      "ISuperFractionalizer": [
+        147
+      ]
+    },
+    "id": 148,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 130,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:3"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "file": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "id": 132,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 148,
+        "sourceUnit": 116,
+        "src": "57:73:3",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 131,
+              "name": "IERC721",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "65:7:3",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ISuperFractionalizer",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 133,
+          "nodeType": "StructuredDocumentation",
+          "src": "132:133:3",
+          "text": "@title ERC721 to Super Token Fractionalization Factory\n @author jtriley.eth\n @notice Requires ERC721.approve() call first."
+        },
+        "fullyImplemented": false,
+        "id": 147,
+        "linearizedBaseContracts": [
+          147
+        ],
+        "name": "ISuperFractionalizer",
+        "nameLocation": "275:20:3",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 134,
+              "nodeType": "StructuredDocumentation",
+              "src": "303:296:3",
+              "text": "@notice Fractionanlizes an ERC721 NFT to Super Token\n @param _erc721 Address of ERC721 contract\n @param _tokenId ID of the token to fractionalize\n @param _initialSupply Initial supply fractionalized shares\n @return _fractionalized Address of new fractionalized NFT"
+            },
+            "functionSelector": "cfca483b",
+            "id": 146,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "fractionalize",
+            "nameLocation": "613:13:3",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 137,
+                  "mutability": "mutable",
+                  "name": "_erc721",
+                  "nameLocation": "644:7:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 146,
+                  "src": "636:15:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC721_$115",
+                    "typeString": "contract IERC721"
+                  },
+                  "typeName": {
+                    "id": 136,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 135,
+                      "name": "IERC721",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 115,
+                      "src": "636:7:3"
+                    },
+                    "referencedDeclaration": 115,
+                    "src": "636:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC721_$115",
+                      "typeString": "contract IERC721"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 139,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "669:8:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 146,
+                  "src": "661:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 138,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "661:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 141,
+                  "mutability": "mutable",
+                  "name": "_initialSupply",
+                  "nameLocation": "695:14:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 146,
+                  "src": "687:22:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 140,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "687:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "626:89:3"
+            },
+            "returnParameters": {
+              "id": 145,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 144,
+                  "mutability": "mutable",
+                  "name": "_fractionalized",
+                  "nameLocation": "742:15:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 146,
+                  "src": "734:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 143,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "734:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "733:25:3"
+            },
+            "scope": 147,
+            "src": "604:155:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 148,
+        "src": "265:497:3",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:731:3"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/interfaces/ISuperFractionalizer.sol",
+    "exportedSymbols": {
+      "IERC721": [
+        115
+      ],
+      "ISuperFractionalizer": [
+        147
+      ]
+    },
+    "id": 148,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 130,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:3"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "file": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "id": 132,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 148,
+        "sourceUnit": 116,
+        "src": "57:73:3",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 131,
+              "name": "IERC721",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "65:7:3",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ISuperFractionalizer",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 133,
+          "nodeType": "StructuredDocumentation",
+          "src": "132:133:3",
+          "text": "@title ERC721 to Super Token Fractionalization Factory\n @author jtriley.eth\n @notice Requires ERC721.approve() call first."
+        },
+        "fullyImplemented": false,
+        "id": 147,
+        "linearizedBaseContracts": [
+          147
+        ],
+        "name": "ISuperFractionalizer",
+        "nameLocation": "275:20:3",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 134,
+              "nodeType": "StructuredDocumentation",
+              "src": "303:296:3",
+              "text": "@notice Fractionanlizes an ERC721 NFT to Super Token\n @param _erc721 Address of ERC721 contract\n @param _tokenId ID of the token to fractionalize\n @param _initialSupply Initial supply fractionalized shares\n @return _fractionalized Address of new fractionalized NFT"
+            },
+            "functionSelector": "cfca483b",
+            "id": 146,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "fractionalize",
+            "nameLocation": "613:13:3",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 142,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 137,
+                  "mutability": "mutable",
+                  "name": "_erc721",
+                  "nameLocation": "644:7:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 146,
+                  "src": "636:15:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC721_$115",
+                    "typeString": "contract IERC721"
+                  },
+                  "typeName": {
+                    "id": 136,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 135,
+                      "name": "IERC721",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 115,
+                      "src": "636:7:3"
+                    },
+                    "referencedDeclaration": 115,
+                    "src": "636:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC721_$115",
+                      "typeString": "contract IERC721"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 139,
+                  "mutability": "mutable",
+                  "name": "_tokenId",
+                  "nameLocation": "669:8:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 146,
+                  "src": "661:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 138,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "661:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 141,
+                  "mutability": "mutable",
+                  "name": "_initialSupply",
+                  "nameLocation": "695:14:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 146,
+                  "src": "687:22:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 140,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "687:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "626:89:3"
+            },
+            "returnParameters": {
+              "id": 145,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 144,
+                  "mutability": "mutable",
+                  "name": "_fractionalized",
+                  "nameLocation": "742:15:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 146,
+                  "src": "734:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 143,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "734:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "733:25:3"
+            },
+            "scope": 147,
+            "src": "604:155:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 148,
+        "src": "265:497:3",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:731:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.11+commit.d7f03943.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-01-14T17:42:07.070Z",
+  "devdoc": {
+    "author": "jtriley.eth",
+    "kind": "dev",
+    "methods": {
+      "fractionalize(address,uint256,uint256)": {
+        "params": {
+          "_erc721": "Address of ERC721 contract",
+          "_initialSupply": "Initial supply fractionalized shares",
+          "_tokenId": "ID of the token to fractionalize"
+        },
+        "returns": {
+          "_fractionalized": "Address of new fractionalized NFT"
+        }
+      }
+    },
+    "title": "ERC721 to Super Token Fractionalization Factory",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "fractionalize(address,uint256,uint256)": {
+        "notice": "Fractionanlizes an ERC721 NFT to Super Token"
+      }
+    },
+    "notice": "Requires ERC721.approve() call first.",
+    "version": 1
+  }
+}
