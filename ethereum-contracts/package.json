@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "truffle compile",
-    "test": "truffle test"
+    "test": "truffle test",
+    "deploy": "truffle --network matic exec scripts/deploy.js"
   },
   "devDependencies": {
     "@decentral.ee/web3-helpers": "^0.5.3",
@@ -20,6 +21,7 @@
     "truffle": "^5.4.29"
   },
   "dependencies": {
-    "nft.storage": "^5.2.0"
+    "nft.storage": "^5.2.0",
+    "truffle-plugin-verify": "^0.5.20"
   }
 }

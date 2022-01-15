@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPLv3
 pragma solidity ^0.8.0;
 
 import {UUPSProxy} from "./utils/UUPSProxy.sol";
@@ -20,7 +20,7 @@ contract SuperFractionalized is UUPSProxy, ISuperFractionalized {
 	/// @dev Underlying token address
 	address public tokenAddress;
 
-	/// @dev Implementation of ISuperfractionalized.initialize
+	/// @dev Implementation of ISuperFractionalized.initialize
 	function initialize(
 		string memory name,
 		string memory symbol,
@@ -45,6 +45,7 @@ contract SuperFractionalized is UUPSProxy, ISuperFractionalized {
 		);
 	}
 
+	/// @dev Iplementation of ISuperFractionalized.tokenURI
 	function tokenURI() public view returns (string memory _uri) {
 		return IERC721Metadata(tokenAddress).tokenURI(tokenId);
 	}

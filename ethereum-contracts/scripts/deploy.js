@@ -1,11 +1,31 @@
-const Contract = require("web3-eth-contract")
+const { web3tx } = require("@decentral.ee/web3-helpers")
+const { setWeb3Provider } = require("@decentral.ee/web3-helpers/src/config")
+const SuperFractionalizer = artifacts.require("SuperFractionalizer")
+// const JuicyNFT = artifacts.require('JuicyNFT')
 
-// set provider for all later instances to use
-Contract.setProvider("")
+module.exports = async function (callback) {
+	try {
+		setWeb3Provider(web3.currentProvider)
 
-var contract = new Contract(jsonInterface, address)
+		const superFractionalizer = await web3tx(
+			SuperFractionalizer.new,
+			"Deploy SuperFractionalizer"
+		)("0x2C90719f25B10Fc5646c82DA3240C76Fa5BcCF34")
 
-contract.methods
-	.somFunc()
-	.send({ from })
-	.on("receipt", function () {})
+		console.log({ superFractionalizer })
+		// const juicyNFT = await web3tx(
+		// 	JuicyNFT.new,
+		// 	"Deploy JuicyNFT"
+		// )(
+		// 	"Juicy NFT",
+		// 	"JNFT",
+		// 	"ipfs://bafyreiauhev5snezofkgscfdr6hmtmi753bwfsqrmecr4wg7ttwkqkek5u/metadata.json"
+		// )
+
+		// console.log({ juicyNFT })
+		callback()
+	} catch (error) {
+		console.error({ error })
+		callback(error)
+	}
+}
