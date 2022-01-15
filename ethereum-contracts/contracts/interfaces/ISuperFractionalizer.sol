@@ -22,9 +22,9 @@ interface ISuperFractionalizer {
     /// @param initialSupply Initial supply of fractions
     event Fractionalized(
         address receiver,
-        address erc721Token,
-        uint256 tokenId,
-        address superFractionalized,
+        address indexed erc721Token,
+        uint256 indexed tokenId,
+        address indexed superFractionalized,
         uint256 initialSupply
     );
 

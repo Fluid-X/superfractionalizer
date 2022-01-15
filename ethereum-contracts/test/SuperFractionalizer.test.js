@@ -59,7 +59,12 @@ contract("SuperFractionalizer", accounts => {
 			"SuperFractionalizer.new by Alice"
 		)(superTokenFactory.address, { from: alice })
 
-		juicyNFT = await web3tx(JuicyNFT.new, "JuicyNFT.new by Alice")({ from: alice })
+		juicyNFT = await web3tx(JuicyNFT.new, "JuicyNFT.new by Alice")(
+			"JuicyNFT",
+			"JNFT",
+			"testLmao",
+			{ from: alice }
+		)
 	})
 
 	it("Alice can Super Fractionalize", async () => {
@@ -71,7 +76,9 @@ contract("SuperFractionalizer", accounts => {
 		const tx = await web3tx(
 			superFractionalizer.fractionalize,
 			"Alice fractionalizes"
-		)(juicyNFT.address, "Super Juicy Token", "SJT", TOKEN_ID, INIT_SUPPLY, { from: alice })
+		)(juicyNFT.address, "Super Juicy Token", "SJT", TOKEN_ID, INIT_SUPPLY, {
+			from: alice
+		})
 
 		const address = tx.receipt.rawLogs[3].address
 
@@ -114,7 +121,13 @@ contract("SuperFractionalizer", accounts => {
 			{ from: alice }
 		)
 		assert.equal(
-			(await cfa.getFlow.call(superFractionalizedNFT.native.address, alice, bob)).flowRate.toString(),
+			(
+				await cfa.getFlow.call(
+					superFractionalizedNFT.native.address,
+					alice,
+					bob
+				)
+			).flowRate.toString(),
 			TEST_FLOW_RATE.toString()
 		)
 	})
