@@ -19,7 +19,7 @@ export default function App() {
 	const [chain, setChain] = useState("")
 	const [name, setName] = useState("")
 	const [symbol, setSymbol] = useState("")
-	const [initialSupply, setInitialSupply] = useState("")
+	const [initialSupply, setInitialSupply] = useState("1000000000000000000000000")
 
 	const checkWalletIsConnected = async () => {
 		const { ethereum } = window
@@ -47,8 +47,8 @@ export default function App() {
 	const approveNFT = async () => {
 		const appr = await approve(
 			signer,
-			"0x850efB7d60374D60C48831b0F5F18362255BAF12",
-			"0"
+			contractAddress,
+			tokenId
 		)
 
 		setApproved(appr)
@@ -241,7 +241,7 @@ export default function App() {
 					</div>
 					<div className="button-container">
 						<button
-							disabled={found || approved}
+							disabled={!found || approved}
 							style={{ opacity: found ^ approved ? 1 : 0.2 }}
 							className="cta-button primary-button margin-button"
 							onClick={approveNFT}
