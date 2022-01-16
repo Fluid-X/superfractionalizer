@@ -11,6 +11,8 @@ export async function getSigner(ethereum) {
 
 export async function nftExists(signer, address, id, chain) {
 	if (chain !== "goerli") return false
+	if (!(parseInt(id) == id)) return false
+
 	const contract = new ethers.Contract(address, ERC721.abi, signer.provider)
 	try {
 		const uri = await contract.tokenURI(id)

@@ -2,6 +2,9 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+// comment previous line and uncomment this line for Remix
+// import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol";
+
 
 contract JuicyNFT is ERC721 {
 	string internal _tokenURI;
