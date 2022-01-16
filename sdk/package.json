@@ -1,7 +1,8 @@
 {
   "name": "super-fractionalizer-sdk",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "license": "MIT",
   "scripts": {
     "getAbi": "sh ./scripts/getAbi.sh",
