@@ -4,7 +4,7 @@ import ERC721 from "../abi/ERC721.json"
 import ISuperFractionalizer from "../abi/ISuperFractionalizer.json"
 import { goerliSuperFractionalizer } from "../constants"
 
-import { Nft, SuperFractionzlier } from 'super-fractionalizer-sdk'
+// import { Nft, SuperFractionzlier } from 'super-fractionalizer-sdk'
 
 export async function getSigner(ethereum) {
 	const provider = new ethers.providers.Web3Provider(ethereum)
@@ -15,10 +15,10 @@ export async function nftExists(signer, address, id, chain) {
 	if (chain !== "goerli") return false
 	// if (!(parseInt(id) == id)) return false
 
-	// const contract = new ethers.Contract(address, ERC721.abi, signer.provider)
+	const contract = new ethers.Contract(address, ERC721.abi, signer.provider)
 	try {
-		const uri = await new Nft({ address, chainId: chain }).tokenURI({ tokenId: id, providerOrSigner: signer })
-		console.log({ uri })
+		// const uri = await new Nft({ address, chainId: chain }).tokenURI({ tokenId: id, providerOrSigner: signer })
+		await contract.tokenURI(id)
 		return true
 	} catch (error) {
 		console.error({ error })
