@@ -1,5 +1,6 @@
 # Super Fractionalizer
 
+<img src = "client/public/logo192.png" >
 
 The Super Fractionalizer is a smart contract that fractionalizes an ERC721 NFT directly into a Super Token. It brings to NFTs all of the juicy functionality the Superfluid protocol has built.
 
