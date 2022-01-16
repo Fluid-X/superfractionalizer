@@ -6,7 +6,7 @@
 		"declaration": true,
 		"declarationMap": true,
 		"sourceMap": true,
-		"outDir": "dist/main",
+		"outDir": "./build",
 		"rootDir": "./src",
 		"removeComments": false,
 		"strict": true,
@@ -27,6 +27,6 @@
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true
 	},
-	"include": ["./src/**/*.ts"],
-	"exclude": ["node_modules"]
+	"include": ["./src/*.ts"],
+	"exclude": ["./src/typechain/factories", "node_modules"]
 }
